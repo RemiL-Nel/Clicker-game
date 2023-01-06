@@ -20,7 +20,7 @@ export default function Zones({
   const spawnMonster = () => {
     if (monsterCount === maxMonsterCount) {
       setMonsterCount(1);
-      if (monsterZone % 9 === 0) {
+      if ((monsterZone + 1) % 10 === 0) {
         setBeforeBossLife(maxLife);
         setMaxLife((maxLife = Math.round(maxLife * 10)));
         setMaxMonsterCount(1);
