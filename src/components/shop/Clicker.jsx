@@ -2,7 +2,7 @@ import { useState } from "react";
 export default function Clicker({ setScore, score, setLife }) {
   const [clicker, setClicker] = useState(0);
   const [price, setPrice] = useState(10);
-  const handleBuyClicker = () => {
+  const buy = () => {
     if (score >= Math.round(price)) {
       setScore(score - Math.round(price));
       setClicker(clicker + 1);
@@ -13,8 +13,8 @@ export default function Clicker({ setScore, score, setLife }) {
   return (
     <>
       <p>You have {clicker} clickers</p>
-      <button type="button" onClick={() => handleBuyClicker()}>
-        Buy clicker : {Math.round(price)} points
+      <button type="button" onClick={() => buy()}>
+        Buy clicker: {Math.round(price)} points
       </button>
     </>
   );
