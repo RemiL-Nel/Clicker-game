@@ -72,6 +72,53 @@ export default function Shop({
     enchant: 0,
   }])
 
+  let [scrolls, setScrolls] = useState([
+    {
+      key: 1,
+      id: 1,
+      bought: false,
+      equipped: false,
+      used: false,
+      price: 1000,
+      name: "First Scroll",
+      use: () => {
+        dealDps(power);
+        setTimeout(() => dealDps(-power), 1000);
+      }
+    },
+    {
+      key: 2,
+      id: 2,
+      bought: false,
+      equipped: false,
+      used: false,
+      price: 5000,
+      name: "Second Scroll",
+      use: () => {
+        setPower((power * 2));
+      }
+    },
+    {
+      key: 3,
+      id: 3,
+      bought: false,
+      equipped: false,
+      used: false,
+      price: 8000,
+      name: "Third Scroll",
+    },
+    {
+      key: 4,
+      id: 4,
+      bought: false,
+      equipped: false,
+      used: false,
+      price: 15000,
+      name: "Fourth Scroll",
+    },
+  ]);
+  const [isScrollUsed, setIsScrollUsed] = useState(false);
+
   function getLengthInWrittenForm(length) {
     let minutes = 0;
     let seconds = 0;
@@ -155,9 +202,10 @@ export default function Shop({
         )}
         {currentTab === 2 && (
           <Scrolls
-            dealDps={dealDps}
-            power={power}
-            setPower={setPower}
+            scrolls={scrolls}
+            setScrolls={setScrolls}
+            isScrollUsed={isScrollUsed}
+            setIsScrollUsed={setIsScrollUsed}
             score={score}
             setScore={setScore}
           />

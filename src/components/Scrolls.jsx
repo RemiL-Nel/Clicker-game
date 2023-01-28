@@ -1,58 +1,16 @@
-import { useState } from "react";
 import "../style/shop.css";
 
 export default function Scrolls({
-  dealDps,
-  power,
+  scrolls,
+  setScrolls,
+  isScrollUsed,
+  setIsScrollUsed,
   score,
   setScore,
 }) {
-  let [scrolls, setScrolls] = useState([
-    {
-      key: 1,
-      id: 1,
-      bought: false,
-      equipped: false,
-      price: 1000,
-      name: "First Scroll",
-      handleUse: () => {
-        dealDps(power)
-        setTimeout(() => dealDps(-power), 30000);
-      },
-    },
-    {
-      key: 2,
-      id: 2,
-      bought: false,
-      equipped: false,
-      price: 5000,
-      name: "Second Scroll",
-      handleUse: () => {
-        setPower((power = power * 2));
-      },
-    },
-    {
-      key: 3,
-      id: 3,
-      bought: false,
-      equipped: false,
-      price: 8000,
-      name: "Third Scroll",
-    },
-    {
-      key: 4,
-      id: 4,
-      bought: false,
-      equipped: false,
-      price: 15000,
-      name: "Fourth Scroll",
-    },
-  ]);
-  
-  const [isScrollUsed, setIsScrollUsed] = useState(false);
   const handleUseScrolls = (scroll) => {
     if (isScrollUsed === false) {
-      scroll.handleUse();
+      scroll.use();
       setTimeout(setIsScrollUsed(), 3600000);
     }
   };
